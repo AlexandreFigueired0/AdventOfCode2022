@@ -8,7 +8,7 @@ res = 0
 
 def move_out():
     global curr_path
-    curr_path = curr_path[0:-1]
+    curr_path.pop()
 
 def move_into(dir):
     global curr_path
@@ -58,6 +58,5 @@ for dir,size in sizes.items():
 total_space = 70000000
 space_needed = 30000000
 available_space = total_space - sizes[""]
-print("available",available_space)
 res2 = min(filter(lambda tup : tup[1] + available_space>= space_needed, sizes.items() ),key= lambda tup :tup[1])
 print(res,res2)
