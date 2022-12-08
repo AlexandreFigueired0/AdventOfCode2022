@@ -1,3 +1,4 @@
+import math
 f = open("input.txt")
 input = list(map(lambda l : l.strip(),f.readlines()))
 grid = list(map(lambda l : list(map(lambda c : int(c),l) ),input))
@@ -6,6 +7,7 @@ C = len(grid[0])
 DR = [1,0,-1,0]
 DC = [0,1,0,-1]
 res = 2*R + 2*(C-2)
+res2 = 0
 
 def is_visible(row,col):
     curr_height = grid[row][col]
@@ -24,8 +26,6 @@ def is_visible(row,col):
                     viewed_from -=1
     return viewed_from >0
 
-import math
-res2 = 0
 def seen_top(row,col):
     seen = 0
     dr = -1
