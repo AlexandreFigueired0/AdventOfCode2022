@@ -1,4 +1,3 @@
-import math
 f = open("input.txt")
 input = list(map(lambda l : [l.split()[0],int(l.split()[1])] ,f.readlines()))
 hr,hc = 0,0
