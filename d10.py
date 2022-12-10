@@ -6,7 +6,6 @@ res = 0
 check_sum_cicles = lambda : curr_cicle in sum_cicles
 crt_width,crt_height = 40,6
 crt = [["." for j in range(crt_width)] for i in range(crt_height)]
-sprite_pos = ["." for j in range(crt_width)]
 crt_row,crt_col = 0,0
 
 def draw():
@@ -32,5 +31,4 @@ for line in input:
         res = res + x*curr_cicle if check_sum_cicles() else res
         x += int(n)
 print(res)
-
 [print("".join(line)) for line in crt]
