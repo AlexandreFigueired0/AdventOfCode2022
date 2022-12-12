@@ -1,5 +1,6 @@
 f = open("input.txt")
 input = "".join(f.readlines()).split("\n\n")
+print(input)
 calories = sorted(list(map(lambda x : sum(list(map(lambda s : int(s),x.split("\n")))),input)), reverse=True)
 print("Part 1:",calories[0])
 print("Part 2:",calories[0] + calories[1] + calories[2])
