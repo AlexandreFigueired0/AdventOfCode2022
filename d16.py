@@ -16,16 +16,17 @@ time = 30
 
 @functools.lru_cache(maxsize=None)
 def explore(curr_valve,time,opened):
-    if time <= 0:
+    if time <= 0 :
         return 0
     res = 0
     if curr_valve not in opened:
         flow_rate = (time-1) * valves[curr_valve]
-        new_opened =opened + (curr_valve,)
-        for v in valves_network[curr_valve]:
-            if flow_rate != 0: # in case we open the valve
-                res = max(res, flow_rate  + explore( v, time-2 , new_opened ))
-            res = max(res, explore(v , time-1,opened))
+        if flow_rate != 0: # in case we open the valve
+            new_opened =opened + (curr_valve,)
+            for v in valves_network[curr_valve]:
+                    res = max(res, flow_rate  + explore( v, time-2 , new_opened ))
+    for v in valves_network[curr_valve]:
+        res = max(res, explore(v , time-1,opened))
     return res
 
 @functools.lru_cache(maxsize=None)
