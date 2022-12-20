@@ -1,7 +1,6 @@
 input = list(enumerate(list(map(lambda l : int(l.strip()) * 811589153 ,open("input.txt").readlines()))))
 not_done = input[:]
 
-print()
 for k in range(10): #remove cylce and multplication for p1
     for num in not_done:
         if num[1] == 0: continue
@@ -10,7 +9,6 @@ for k in range(10): #remove cylce and multplication for p1
         new_index = ((index+steps) % len(input)) + ((index+steps)//len(input))
         input.remove(num)
         input = input[:new_index] + [num] + input[new_index:]
-
 
 zero_index = 0
 for _,n in input:
