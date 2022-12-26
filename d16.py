@@ -47,6 +47,3 @@ def explore2(curr_valve,time,opened):
 
 print(explore(start,30,()))
 print(explore2(start,26,()))
-
-
-
